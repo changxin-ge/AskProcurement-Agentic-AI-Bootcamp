@@ -1,0 +1,122 @@
+{
+    "openapi": "3.0.1",
+    "info": {
+        "title": "FastAPI",
+        "version": "0.1.0"
+    },
+     "servers": [
+        {
+            "url": "https://generate-word-document-tool.230djh4o4kwf.us-south.codeengine.appdomain.cloud/"
+        }
+    ],
+    "paths": {
+        "/generate_word_document": {
+            "post": {
+                "summary": "generate_word_document",
+                "description": "Takes the file content string and converts to a downloadable word document.\n    Args :\n        file_content : The markdown string for the entire document\n\n    Returns :\n        The url to the downloadable word file.",
+                "operationId": "generate_word_document_generate_word_document_post",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/FileContent"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties":{
+                                    "document_url":{
+                                        "type":"string",
+                                        "description":"The downloadable URL to the document"
+                                    }
+                                }
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "description": "Validation Error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/HTTPValidationError"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "FileContent": {
+                "properties": {
+                    "file_content": {
+                        "type": "string",
+                        "title": "File Content"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "file_content"
+                ],
+                "title": "FileContent"
+            },
+            "HTTPValidationError": {
+                "properties": {
+                    "detail": {
+                        "items": {
+                            "$ref": "#/components/schemas/ValidationError"
+                        },
+                        "type": "array",
+                        "title": "Detail"
+                    }
+                },
+                "type": "object",
+                "title": "HTTPValidationError"
+            },
+            "ValidationError": {
+                "properties": {
+                    "loc": {
+                        "items": {
+                            "anyOf": [
+                                {
+                                    "type": "string"
+                                },
+                                {
+                                    "type": "integer"
+                                }
+                            ]
+                        },
+                        "type": "array",
+                        "title": "Location"
+                    },
+                    "msg": {
+                        "type": "string",
+                        "title": "Message"
+                    },
+                    "type": {
+                        "type": "string",
+                        "title": "Error Type"
+                    }
+                },
+                "type": "object",
+                "required": [
+                    "loc",
+                    "msg",
+                    "type"
+                ],
+                "title": "ValidationError"
+            }
+        }
+    }
+}
