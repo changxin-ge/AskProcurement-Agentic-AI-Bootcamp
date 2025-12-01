@@ -1,4 +1,15 @@
-# Hands-on Lab
+# Hands-on Lab for Order To Cash <!-- omit in toc -->
+
+## Table of Contents <!-- omit in toc -->
+
+- [IBM Cloud to watsonX Orchestrate](#ibm-cloud-to-watsonx-orchestrate)
+- [Creating Agents in watsonX Orchestrate](#creating-agents-in-watsonx-orchestrate)
+  - [Create Purchase Order Agent](#create-purchase-order-agent)
+  - [Create Get Purchase Order Agent](#create-get-purchase-order-agent)
+  - [Create Get Goods Receipts Agent](#create-get-goods-receipts-agent)
+  - [Creating Order To Cash Validator Agent](#creating-order-to-cash-validator-agent)
+- [Testing Create Purchase Agent](#testing-create-purchase-agent)
+- [Testing the Order To Cash Validator Agent](#testing-the-order-to-cash-validator-agent)
 
 ## IBM Cloud to watsonX Orchestrate
 
@@ -41,6 +52,13 @@ This agent will help in creating purchase orders using the relevant tools and ad
 - Choose the model.
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/2.png)
+
+- Edit the Welcome Message
+
+```
+Hello, I am the Create Purchase Order Agent.
+```
+![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/2.1.png)
 
 - Edit the QuickStart Prompt to the following prompt below.
 
@@ -190,7 +208,7 @@ Get details about Purchase Order: 4500002121
 - Search for ```SAP S4 HANA``` in the left panel of Apps Section.
 - Search for the following in the top search bar.
     ```
-    Create a purchase order in S4 HANA
+    Get a purchase order details from S4 HANA
     ```
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/5.png)
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/6.png)
@@ -230,7 +248,7 @@ To the data retrieved from the tool `Get a purchase order details from S4 HANA`a
 
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/9.png)
 
-### Create Get Goods Receipts Agent.
+### Create Get Goods Receipts Agent
 
 - Click on Create Agent
 
@@ -319,6 +337,13 @@ This agent will help with performing invoice validation against purchase order a
 ```
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/1.png)
+
+- Edit the Welcome Message
+
+```
+Hello, I am the Order To Cash Validator Agent
+```
+![Alt text for image](./screenshot_assets/O2C_Validation_Agent/2.1.png)
 
 - Give the Quick Start Prompt.
 
@@ -470,3 +495,40 @@ Reason = "PO and Invoice prices do not match."
 - Click on Validate Purchase Order.
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/13.png)
+
+## Testing Create Purchase Agent
+
+- Click on either of the Quick Prompts on the chat screen.
+
+![Alt text for image](./screenshot_assets/Testing_Agents/1.png)
+
+- Here is the example result after the purchase order is created.
+
+![Alt text for image](./screenshot_assets/Testing_Agents/2.png)
+
+***Note**: Make sure to copy the created Purchase Order ID to use it in the **Get Purchase Order Agent**. The purchase order ID can be used there in the Quick Prompt edit.*
+
+- Try out the below query to check out supplier details.
+  
+```
+Get all supplier details for company code WXO1.
+```
+
+![Alt text for image](./screenshot_assets/Testing_Agents/3.png)
+
+## Testing the Order To Cash Validator Agent
+
+- Click on the Quick Prompt on the chat screen.
+
+![Alt text for image](./screenshot_assets/Testing_Agents/4.png)
+
+- When it asks for the purchase order ID, give the purchase order which you created in the **Create Purchase Order Agent**.
+
+For Example:
+```
+The purchase order ID is 4500002135.
+```
+
+![Alt text for image](./screenshot_assets/Testing_Agents/6.png)
+
+- You can now see the Purchase Order, Goods Receipt and Invoice have been validated. The Validation Result comes as **Validation Failed**, along with the **Reason: PO and Invoice Quanities do not match.**
