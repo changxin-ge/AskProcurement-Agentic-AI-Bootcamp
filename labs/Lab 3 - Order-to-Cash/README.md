@@ -533,11 +533,11 @@ Reason = "PO and Invoice prices do not match."
 </details>
 
 <details open id="testing-agents">
-<summary><h2>3. Testing of Agents</h2><summary>
+<summary><h2>3. Testing of Agents</h2></summary>
 
 
 <details open id="testing-create-purchase-agent">
-<summary><h3>3.1 Testing Create Purchase Order Agent</h3><summary>
+<summary><h3>3.1 Testing Create Purchase Order Agent</h3></summary>
 
 1. Navigate to the hamburger menu and click on **Chat**.
 
@@ -567,7 +567,7 @@ Get all supplier details for company code WXO1.
 
  
 <details open id="testing-the-order-to-cash-validator-agent">
-<summary><h3>3.2 Testing the Order To Cash Validator Agent</h3><summary>
+<summary><h3>3.2 Testing the Order To Cash Validator Agent</h3></summary>
 
 1. Select the **Order To Cash Validator Agen** from the dropdown
 
