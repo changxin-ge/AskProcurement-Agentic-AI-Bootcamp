@@ -1,43 +1,62 @@
-# Hands-on Lab for Order To Cash <!-- omit in toc -->
+# Lab 3 : Order To Cash 
 
-## Table of Contents <!-- omit in toc -->
+## Table of Contents 
 
-- [IBM Cloud to watsonX Orchestrate](#ibm-cloud-to-watsonx-orchestrate)
-- [Creating Agents in watsonX Orchestrate](#creating-agents-in-watsonx-orchestrate)
-  - [Create Purchase Order Agent](#create-purchase-order-agent)
-  - [Create Get Purchase Order Agent](#create-get-purchase-order-agent)
-  - [Create Get Goods Receipts Agent](#create-get-goods-receipts-agent)
-  - [Creating Order To Cash Validator Agent](#creating-order-to-cash-validator-agent)
-- [Testing Create Purchase Agent](#testing-create-purchase-agent)
-- [Testing the Order To Cash Validator Agent](#testing-the-order-to-cash-validator-agent)
+- [1. Introduction](#introduction)
+- [2. Creating Agents in watsonX Orchestrate](#creating-agents-in-watsonx-orchestrate)
+  - [2.1 Create Purchase Order Agent](#create-purchase-order-agent)
+  - [2.2 Create Get Purchase Order Agent](#create-get-purchase-order-agent)
+  - [2.3 Create Get Goods Receipts Agent](#create-get-goods-receipts-agent)
+  - [2.4 Creating Order To Cash Validator Agent](#creating-order-to-cash-validator-agent)
+- [3. Testing of Agents](#testing-agents)
+  - [3.1 Testing Create Purchase Order Agent](#testing-create-purchase-agent)
+  - [3.2 Testing the Order To Cash Validator Agent](#testing-the-order-to-cash-validator-agent)
+- [4. Summary](#summary)
 
-## IBM Cloud to watsonX Orchestrate
+<details open id="introduction">
+<summary><h2>1. Introduction</h2></summary>
 
-- Click on Resource List. Make sure to be on the correct IBM Cloud Account.
+![Alt text for image](./screenshot_assets/order_to_cash_architecture.png)
 
-![Alt text for image](./screenshot_assets/common_1.png)
+This lab focuses on automating the **Order to Cash (O2C)** process using Watsonx Orchestrate. The goal is to streamline procurement and financial workflows by leveraging AI-driven agents that integrate with enterprise systems like **SAP S4HANA**.
 
-- Click on watsonx Orchestrate.
+The specific scenario involves performing a **three-way match** between **Purchase Order**, **Supplier Invoice**, and **Goods Receipt** to validate invoices and ensure compliance. This is a critical step in the O2C cycle for preventing payment errors and maintaining financial integrity.
 
-![Alt text for image](./screenshot_assets/common_2.png)
+We will build a multi-agent solution within Watsonx Orchestrate that:
 
-- Launch watsonx Orchestrate.
+* Creates purchase orders and retrieves their details from SAP S/4HANA.
+* Extracts goods receipt data and links it to the corresponding purchase order.
+* Generates invoice data and performs strict three-way matching.
+* Provides validation results with clear pass/fail status and failure reasons.
 
-![Alt text for image](./screenshot_assets/common_3.png)
+By automating the O2C validation process, procurement and finance teams can:
 
-- Click on the Hamburger Icon on left corner. Open the left panel and click on build.
+* Detect discrepancies early (e.g., quantity mismatches).
+* Reduce manual effort and eliminate repetitive checks.
+* Accelerate invoice processing and improve operational efficiency.
 
-![Alt text for image](./screenshot_assets/common_4.png)
+[← Back to Table of contents](#table-of-contents) 
+</details>
 
-## Creating Agents in watsonX Orchestrate
 
-### Create Purchase Order Agent
+<details open id="creating-agents-in-watsonx-orchestrate">
+<summary><h2>2. Creating Agents in watsonX Orchestrate</h2></summary>
 
-- Click on Create Agent
+We will be creating 4 agents as part of this lab
+
+1. **Create Purchase Order Agent:** Creates new purchase orders in SAP S/4HANA and returns the generated PO ID.
+2. **Get Purchase Order Agent:** Retrieves detailed information for a given purchase order from SAP S/4HANA.
+3. **Get Goods Recepit Agent:** Provides structured goods receipt data linked to a specified purchase order.
+4. **Order To Cash Validator Agent:** Performs a strict three-way match between Purchase Order, Goods Receipt, and Invoice to validate accuracy and compliance.
+
+<details open id="create-purchase-order-agent">
+<summary><h3>2.1 Create Purchase Order Agent</h3></summary>
+
+1. Click on **Create Agent +** from the **Manage Agents** tab
 
 ![Alt text for image](./screenshot_assets/common_5.png)
 
-- Give the name and agent description.
+2. Give the **Name** and agent **Description**.
   
 ```
 Create Purchase Order Agent
@@ -49,18 +68,18 @@ This agent will help in creating purchase orders using the relevant tools and ad
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/1.png)
 
-- Choose the model.
+3. You can select the **Large Language Model** the agent uses. For this agent, select **llama-3-2-90b-vision**.
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/2.png)
 
-- Edit the Welcome Message
+4. Edit the Welcome Message
 
 ```
 Hello, I am the Create Purchase Order Agent.
 ```
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/2.1.png)
 
-- Edit the QuickStart Prompt to the following prompt below.
+5. Edit the QuickStart Prompt to the following prompt below.
 
 ```
 Create a Purchase Order
@@ -71,24 +90,21 @@ Create a PO
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/3.png)
 
-- Keep the agent style and voice modality as it is.
+6. Keep the agent style and voice modality as it is.
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/4.png)
 
-- No need to add knowledge base.
+### Adding Tools to the agent
 
-![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/5.png)
-
-- Click on Add Tool
+1. Click **Toolset** on the left menu or scroll down to the Toolset section, then click **Add tool +**.
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/6.png)
 
-- Click on Catalog
+2. Select the **Catalog** option.
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/7.png)
 
-- Search for ```SAP S4 HANA``` in the left panel of Apps Section.
-  Search for the following in the top search bar.
+3. Search for ```SAP S4 HANA``` in the left panel of Apps Section. Search for the following in the top search bar.
     ```
     Create a purchase order in S4 HANA
     ```
@@ -97,12 +113,12 @@ Create a PO
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/9.png)
 
-- Click on **Add to agent**.
+4. Click on **Add to agent**.
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/10.png)
 
-- Click on **Add Tool** again. 
-- Search for ```SAP S4 HANA``` in the left panel of Apps Section.
+5. Click on **Add Tool** again. 
+6. Search for ```SAP S4 HANA``` in the left panel of Apps Section.
   Search for the following in the top search bar.
     ```
     Get all suppliers in S4 HANA
@@ -110,19 +126,17 @@ Create a PO
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/11.png)
 
-- Click on **Add to agent**.
+7. Click on **Add to agent**.
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/12.png)
 
-- The tools are imported.
+The tools are now successfully imported to the agent.
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/13.png)
 
-- No need to add any agents.
+### Adding Behavior to the agent
 
-![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/14.png)
-
-- Add the agent behavior. Copy the following as agent behavior.
+1. Click **Behavior** on the left menu or scroll down to the Behavior section and enter the below provided content in the **Instructions** field.
 
 ```
 **Role**
@@ -150,32 +164,30 @@ When asked to create a purchase order(PO)
 When I ask for a list of suppliers. Invoke this tool: Get all suppliers in S4 HANA
 Give the list of available suppliers in a table format.
 ```
-
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/15.png)
 
-- No need to add any guidelines.
-
-![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/16.png)
-
-- The agent is no ready for deployment. Click on Deploy (in the right hand corner)
+### Deploying the agent
+1. The agent is no ready for deployment. Click on Deploy (in the right hand corner)
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/17.png)
 
-- Check the tools and connections. The tools and connections must be connected.
+2. Check the tools and connections. The tools and connections must be connected.
 
 ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/18.png)
 
-- Click on ```Chat``` in the left panel of the hamburger menu. Select the agent from the dropdown.
+[← Back to Table of contents](#table-of-contents) 
 
-![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/19.png)
+</details>
 
-### Create Get Purchase Order Agent
 
-- Click on Create Agent. 
+<details open id="create-get-purchase-order-agent">
+<summary><h3>2.2 Create Get Purchase Order Agent</h3></summary>
+
+1. Click on **Create Agent +** from Manage Agents tab. 
 
 ![Alt text for image](./screenshot_assets/common_5.png)
 
-- Give the Agent name and description.
+2. Give the Agent **Name** and **Description**.
 
 ```
 Get Purchase Order Agent
@@ -187,7 +199,7 @@ This agent will help in getting Purchase Order(PO) details from SAP S4 HANA
 
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/1.png)
 
-- Give the Quick Start Prompt.
+3. Give the Quick Start Prompt.
 
 ```
 Get details about Purchase Order: 4500002121
@@ -197,31 +209,35 @@ Get details about Purchase Order: 4500002121
 
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/2.png)
 
-- Scroll down to the Tools section. Click on Add Tool.
+### Adding Tools to the agent
+
+1. Scroll down to the **Toolset** section. Click on **Add Tool +**.
 
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/3.png)
 
-- Click on Catalog
+2. Select the **Catalog** option
 
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/4.png)
 
-- Search for ```SAP S4 HANA``` in the left panel of Apps Section.
-- Search for the following in the top search bar.
+3. Search for ```SAP S4 HANA``` in the left panel of Apps Section.
+4. Search for the following in the top search bar.
     ```
     Get a purchase order details from S4 HANA
     ```
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/5.png)
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/6.png)
 
-- Click on **Add to agent**.
+5. Click on **Add to agent**.
 
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/7.png)
 
-- The tools are imported.
+The tool is now imported successfully to the agent.
 
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/8.png)
 
-- Copy the Agent Behavior to the Behavior section.
+### Adding Behavior to the agent
+
+1. Click **Behavior** on the left menu or scroll down to the Behavior section and enter the below provided content in the **Instructions** field.
 
 ```
 Provide PO data for a given PO number by calling the tool `Get a purchase order details from S4 HANA`. The agent does not prompt the user and returns only the structured data from the tool.
@@ -248,13 +264,19 @@ To the data retrieved from the tool `Get a purchase order details from S4 HANA`a
 
 ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/9.png)
 
-### Create Get Goods Receipts Agent
+[← Back to Table of contents](#table-of-contents) 
 
-- Click on Create Agent
+</details>
+
+
+<details open id="create-get-goods-receipts-agent">
+<summary><h3>2.3 Create Get Goods Receipts Agent</h3></summary>
+
+1. Click on **Create Agent +** from Manage Agents tab. 
 
 ![Alt text for image](./screenshot_assets/common_5.png)
 
-- Give the agent name and description.
+2. Give the Agent **Name** and **Description**.
 
 ```
 Get Goods Receipts
@@ -266,16 +288,16 @@ This agent will help in extracting structured data from a goods receipt
 
 ![Alt text for image](./screenshot_assets/O2C_Get_Goods_Receipts/1.png)
 
-- Give the Quick Start Prompt
+3. Give the Quick Start Prompt
 
 ```
 Get Goods Receipt
 ```
 ![Alt text for image](./screenshot_assets/O2C_Get_Goods_Receipts/2.png)
 
-- Scroll down directly to the Behavior Section.
-- Copy the following agent behavior.
+### Adding Behavior to the agent
 
+1. Click **Behavior** on the left menu or scroll down to the Behavior section and enter the below provided content in the **Instructions** field.
 ```
 Return GR data for a given purchase_order_id. The agent uses mocked GR data but replaces the purchase_order_id field with the value received from Agent C. No user prompts.
 
@@ -320,13 +342,18 @@ This is GR Data template. Inject purchase_order_id as value to purchase_order_nu
 ```
 ![Alt text for image](./screenshot_assets/O2C_Get_Goods_Receipts/3.png)
 
-### Creating Order To Cash Validator Agent
+[← Back to Table of contents](#table-of-contents) 
 
-- Click on Create Agent
+</details>
+
+<details open id="creating-order-to-cash-validator-agent">
+<summary><h3>2.4 Creating Order To Cash Validator Agent</h3></summary>
+
+1. Click on **Create Agent +** from Manage Agents tab. 
 
 ![Alt text for image](./screenshot_assets/common_5.png)
 
-- Give the agent name and description.
+2. Give the Agent **Name** and **Description**.
 
 ```
 Order To Cash Validator Agent
@@ -338,14 +365,14 @@ This agent will help with performing invoice validation against purchase order a
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/1.png)
 
-- Edit the Welcome Message
+3. Edit the Welcome Message
 
 ```
 Hello, I am the Order To Cash Validator Agent
 ```
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/2.1.png)
 
-- Give the Quick Start Prompt.
+4. Give the Quick Start Prompt.
 
 ```
 Validate Purchase Order
@@ -353,20 +380,24 @@ Validate Purchase Order
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/2.png)
 
-- Scroll down to the Agents Section. Click on Add agent.
+### Adding Collaborator Agents
+
+1. Scroll down to the toolset section or click on the **Toolset** option and click on **Add Agent +** button.
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/3.png)
 
-- Click on Local Instance.
+2. Select the **Local Instance** option.
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/4.png)
 
-- Select these two agents: ```Get Goods Receipts``` and ```Get Purchase Order Agent```
+3. Select these two agents: ```Get Goods Receipts``` and ```Get Purchase Order Agent``` we had created earlier and click on **Add to agent**.
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/5.png)
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/6.png)
 
-- Scroll the Behavior section. Copy the following agent behavior.
+### Adding Behavior to the agent
+
+1. Click **Behavior** on the left menu or scroll down to the Behavior section and enter the below provided content in the **Instructions** field.
 
 ```
 Ask user for purchase_order_id
@@ -474,20 +505,19 @@ Reason = "PO and Invoice prices do not match."
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/7.png)
 
-- Now the agent is ready to be deployed. Click on Deploy (right hand corner).
+### Deploying the Agent
+1. Now the agent is ready to be deployed. Click on **Deploy** (right hand corner).
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/8.png)
 
-- Check the connections. The connections must be connected.
+2. Check the connections. The connections must be connected.
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/9.png)
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/10.png)
 
-- Now navigate to the hamburger menu and click on Chat.
 
-![Alt text for image](./screenshot_assets/O2C_Validation_Agent/11.png)
 
-- Select the agent from the left panel drop down. 
+4. Select the agent from the left panel drop down. 
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/12.png)
 
@@ -496,33 +526,56 @@ Reason = "PO and Invoice prices do not match."
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/13.png)
 
-## Testing Create Purchase Agent
+[← Back to Table of contents](#table-of-contents) 
 
-- Click on either of the Quick Prompts on the chat screen.
+</details>
+
+</details>
+
+<details open id="testing-agents">
+<summary><h2>3. Testing of Agents</h2><summary>
+
+
+<details open id="testing-create-purchase-agent">
+<summary><h3>3.1 Testing Create Purchase Order Agent</h3><summary>
+
+1. Navigate to the hamburger menu and click on **Chat**.
+
+![Alt text for image](./screenshot_assets/O2C_Validation_Agent/11.png)
+
+2. Select the **Create Purchase Order Agent** from the dropdown.
+
+3. Click on either of the Quick Prompts on the chat screen.
 
 ![Alt text for image](./screenshot_assets/Testing_Agents/1.png)
 
-- Here is the example result after the purchase order is created.
+4. Here is the example result after the purchase order is created.
 
 ![Alt text for image](./screenshot_assets/Testing_Agents/2.png)
 
 ***Note**: Make sure to copy the created Purchase Order ID to use it in the **Get Purchase Order Agent**. The purchase order ID can be used there in the Quick Prompt edit.*
 
-- Try out the below query to check out supplier details.
-  
+5. Try out the below query to check out supplier details.
 ```
 Get all supplier details for company code WXO1.
 ```
 
 ![Alt text for image](./screenshot_assets/Testing_Agents/3.png)
 
-## Testing the Order To Cash Validator Agent
+[← Back to Table of contents](#table-of-contents) 
+</details>
 
-- Click on the Quick Prompt on the chat screen.
+ 
+<details open id="testing-the-order-to-cash-validator-agent">
+<summary><h3>3.2 Testing the Order To Cash Validator Agent</h3><summary>
+
+1. Select the **Order To Cash Validator Agen** from the dropdown
+
+2. Click on the Quick Prompt on the chat screen.
 
 ![Alt text for image](./screenshot_assets/Testing_Agents/4.png)
 
-- When it asks for the purchase order ID, give the purchase order which you created in the **Create Purchase Order Agent**.
+3. When it asks for the purchase order ID, give the purchase order which you created in the **Create Purchase Order Agent**.
 
 For Example:
 ```
@@ -531,4 +584,34 @@ The purchase order ID is 4500002135.
 
 ![Alt text for image](./screenshot_assets/Testing_Agents/6.png)
 
-- You can now see the Purchase Order, Goods Receipt and Invoice have been validated. The Validation Result comes as **Validation Failed**, along with the **Reason: PO and Invoice Quanities do not match.**
+4. You can now see the Purchase Order, Goods Receipt and Invoice have been validated. The Validation Result comes as **Validation Failed**, along with the **Reason: PO and Invoice Quanities do not match.**
+
+[← Back to Table of contents](#table-of-contents) 
+
+</details>
+
+</details>
+
+
+
+<details open id="summary">
+<summary><h2>4. Summary</h2></summary>
+
+In this lab, we successfully built an AI-powered multi-agent solution in Watsonx Orchestrate to automate the **Order to Cash validation process**. The solution was designed to integrate with SAP S/4HANA, retrieve purchase order and goods receipt data, and validate invoices through a strict **three-way matching** process, as illustrated in the architecture diagram.
+
+Throughout the lab, we accomplished the following key learning objectives:
+
+* Created individual agents for:
+  * **Purchase Order creation** and **Retrieval**.
+  * **Goods Receipt extraction**.
+* Built a **Validator Agent** that orchestrates interactions between these agents.
+* Implemented behavior logic to:
+  * Collect user input for PO number.
+  * Retrieve PO and GR data automatically.
+  * Generate invoice data and perform validation checks.
+* Tested the solution to ensure accurate validation results, including failure reasons for mismatched quantities or prices.
+
+By completing this lab, you have gained hands-on experience in building intelligent automation solutions that enhance financial accuracy, reduce manual workload, and accelerate the O2C cycle.
+
+[← Back to Table of contents](#table-of-contents) | [← Back to Lab 2](../Lab%202%20-%20RFP%20Generation/README.md) | [← Back to Main Page](../../README.md)
+</details>

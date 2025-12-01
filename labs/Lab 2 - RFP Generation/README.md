@@ -342,5 +342,5 @@ Throughout the lab, we accomplished the following key learning objectives:
 
 By completing this lab, you have gained hands-on experience in building intelligent automation solutions that enhance efficiency, reduce manual effort, and deliver consistent results for business processes.
 
-[← Back to Table of contents](#table-of-contents) | [← Back to Lab 1](../Lab%201%20-%20Sourcing%20Potential%20supplier/README.md) | [← Back to Main Page](../../README.md) 
+[← Back to Table of contents](#table-of-contents) | [← Back to Lab 1](../Lab%201%20-%20Sourcing%20Potential%20supplier/README.md) | [← Back to Main Page](../../README.md) | [Next: Lab 3 - Order to Cash →](../Lab%203%20-%20Order-to-Cash/README.md)
 </details>
