@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [1. Introduction](#introduction)
-- [2. Accessing Watsonx Orchestrate UI](#rfp-generation-agent)
+- [2. Accessing Watsonx Orchestrate UI](#accessing-ui)
 - [3. Building the Potential Supplier Agent](#building-potential-supplier-agent)
     - [3.1 Catalog Management Agent](#catalog-management-agent)
     - [3.2 Supplier Management Agent](#supplier-management-agent)
@@ -39,7 +39,7 @@ By automating supplier sourcing, procurement teams can:
 </details>
 
 
-<details open id="introduction">
+<details open id="accessing-ui">
 <summary><h2>2. Accessing Watsonx Orchestrate UI</h2></summary>
 
 1. To access the watsonx Orchestrate console, go to the [Resources list on the IBM Cloud homepage](https://cloud.ibm.com/resources).
