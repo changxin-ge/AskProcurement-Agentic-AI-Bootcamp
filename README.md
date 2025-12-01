@@ -15,7 +15,8 @@ In this session, you’ll:
 
 ## 💼 Use Cases
 
-1. **Sourcing Potential Supplier**
+1. **Sourcing Potential Supplier** <br>
+
 Imagine you’re part of Amazon’s procurement team tasked with finding the best supplier for a product:
 
 * Multiple suppliers exist with varying costs and delivery timelines.
@@ -27,7 +28,8 @@ Imagine you’re part of Amazon’s procurement team tasked with finding the bes
 
 In minutes, you’ll know the best supplier based on your priorities.
 
-2. **RFP Generation**
+2. **RFP Generation** <br>
+
 Drafting an RFP can be tedious and repetitive. With a custom agent:
 
 * The agent uses a predefined template.
@@ -36,7 +38,8 @@ Drafting an RFP can be tedious and repetitive. With a custom agent:
 
 No more manual formatting—just fast, accurate RFPs tailored to your needs.
 
-3. **Order-to-Cash Validation**
+3. **Order-to-Cash Validation** <br>
+
 Validating invoices against purchase orders and goods receipts is critical for financial accuracy. With a multi-agent solution:
 
 * The system performs a three-way match between Purchase Order, Goods Receipt, and Invoice.
