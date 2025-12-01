@@ -22,6 +22,8 @@ Ensure you download these below files and keep them handy since we will be using
 <details open id="introduction">
 <summary><h2>1. Introduction</h2></summary>
 
+![alt text](images/rfp_architecture.png)
+
 This lab focuses on automating the creation of Request for Proposal (RFP) documents using Watsonx Orchestrate. The goal is to streamline procurement processes by leveraging AI-driven automation.
 
 The specific scenario involves generating an RFP for LiDAR systems used in low-orbit satellites. These RFPs are critical for sourcing advanced LiDAR technology that meets stringent requirements for satellite operations.

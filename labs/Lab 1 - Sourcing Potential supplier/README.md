@@ -18,6 +18,8 @@
 <details open id="introduction">
 <summary><h2>1. Introduction</h2></summary>
 
+![alt text](images/sourcing_supplier_architecture.png)
+
 This lab focuses on automating the process of sourcing potential suppliers using Watsonx Orchestrate. The goal is to optimize procurement decisions by leveraging AI-driven workflows and enterprise system integrations.
 
 The specific scenario involves identifying the best supplier for a given product based on key factors such as **cost** and **delivery time**. These decisions are critical for ensuring timely procurement and cost efficiency in large-scale operations.

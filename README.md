@@ -1,5 +1,7 @@
 # Procurement Workflow Automation with watsonx Orchestrate AI Agents
 
+![alt text](./main_architecture.png)
+
 Ever spent hours evaluating suppliers or drafting RFPs manually? These tasks can be time-consuming and prone to errors.
 
 In this hands-on workshop, we’ll show you how to leverage IBM’s watsonx Orchestrate AI Agents to streamline procurement processes, making them faster, smarter, and more reliable.
