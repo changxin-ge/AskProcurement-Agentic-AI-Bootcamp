@@ -36,11 +36,21 @@ Drafting an RFP can be tedious and repetitive. With a custom agent:
 
 No more manual formatting—just fast, accurate RFPs tailored to your needs.
 
+3. **Order-to-Cash Validation**
+Validating invoices against purchase orders and goods receipts is critical for financial accuracy. With a multi-agent solution:
+
+* The system performs a three-way match between Purchase Order, Goods Receipt, and Invoice.
+* Detects discrepancies in quantity or price before payment processing.
+* Provides clear validation results with pass/fail status and failure reasons.
+
+This automation reduces manual checks, prevents costly errors, and accelerates the O2C cycle.
+
 ## 🚀 Getting Started
 Please find the step-by-step instructions here on how you can implement these use cases.
 
 1. [Lab 1 - Sourcing Potential Supplier](labs/Lab%201%20-%20Sourcing%20Potential%20supplier/README.md)
 2. [Lab 2 - RFP Generation](labs/Lab%202%20-%20RFP%20Generation/README.md)
+3. [Lab 3 - Order-to-Cash (Optional)](labs/Lab%203%20-%20Order-to-Cash/README.md)
 
 ## Resources
 * [watsonx Orechestrate Documentation](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base)
