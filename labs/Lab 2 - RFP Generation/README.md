@@ -24,11 +24,11 @@ Ensure you download these below files and keep them handy since we will be using
 
 ![alt text](images/rfp_architecture.png)
 
-This lab focuses on automating the creation of Request for Proposal (RFP) documents using Watsonx Orchestrate. The goal is to streamline procurement processes by leveraging AI-driven automation.
+This lab focuses on automating the creation of Request for Proposal (RFP) documents using watsonx Orchestrate. The goal is to streamline procurement processes by leveraging AI-driven automation.
 
 The specific scenario involves generating an RFP for LiDAR systems used in low-orbit satellites. These RFPs are critical for sourcing advanced LiDAR technology that meets stringent requirements for satellite operations.
 
-In this lab, you will build an AI-powered agent within Watsonx Orchestrate that:
+In this lab, you will build an AI-powered agent within watsonx Orchestrate that:
 
 * Adheres to a predefined RFP template.
 * Interacts with the user by asking key questions to gather necessary details.
@@ -47,7 +47,7 @@ By automating RFP generation, procurement teams can:
 <details open id="rfp-generation-agent">
 <summary><h2>2. RFP Generation Agent</h2></summary>
 
-We are now ready to get started with building the RFP Generation Agent. Since you are familiar with the UI of Orchestrate from your previous lab session, let us get straight into building the agent.
+We are now ready to get started with building the RFP Generation Agent. Since you are familiar with the UI of watsonx Orchestrate from your previous lab session, let us get straight into building the agent.
 
 <details open id="creating-the-agent">
 <summary><h3>2.1 Creating the Agent</h3></summary>
@@ -317,7 +317,7 @@ To deploy the RFP Generation Agent
 
 It make take a few seconds to complete the deployement process
 
-4. To test the agent from the AI Chat window, click on the hamburger menu in the top left corner and then click on Chat.
+4. To test the agent from the AI Chat window, click on the **☰** hamburger menu in the top left corner and then click on Chat.
 
   ![AI Chat](images/img29.png)
 
@@ -332,11 +332,11 @@ It make take a few seconds to complete the deployement process
 <details open id="summary">
 <summary><h2>5. Summary</h2></summary>
 
-In this lab, we successfully built an AI-powered agent in Watsonx Orchestrate designed to automate the generation of Request for Proposal (RFP) documents for LiDAR systems used in low-orbit satellites. The agent was configured to follow a predefined template, interact with users to collect essential details, and produce a downloadable RFP document in Microsoft Word (.docx) format.
+In this lab, we successfully built an AI-powered agent in watsonx Orchestrate designed to automate the generation of Request for Proposal (RFP) documents for LiDAR systems used in low-orbit satellites. The agent was configured to follow a predefined template, interact with users to collect essential details, and produce a downloadable RFP document in Microsoft Word (.docx) format.
 
 Throughout the lab, we accomplished the following key learning objectives:
 
-* Created a custom agent in Watsonx Orchestrate tailored for procurement workflows.
+* Created a custom agent in watsonx Orchestrate tailored for procurement workflows.
 * Integrated a tool into the agent to enable document generation capabilities.
 * Added a knowledge base to the agent, ensuring it could reference it as the template for the RFP document.
 

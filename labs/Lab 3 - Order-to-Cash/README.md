@@ -3,7 +3,7 @@
 ## Table of Contents 
 
 - [1. Introduction](#introduction)
-- [2. Creating Agents in watsonX Orchestrate](#creating-agents-in-watsonx-orchestrate)
+- [2. Creating Agents in watsonx Orchestrate](#creating-agents-in-watsonx-orchestrate)
   - [2.1 Create Purchase Order Agent](#create-purchase-order-agent)
   - [2.2 Create Get Purchase Order Agent](#create-get-purchase-order-agent)
   - [2.3 Create Get Goods Receipts Agent](#create-get-goods-receipts-agent)
@@ -18,11 +18,11 @@
 
 ![Alt text for image](./screenshot_assets/order_to_cash_architecture.png)
 
-This lab focuses on automating the **Order to Cash (O2C)** process using Watsonx Orchestrate. The goal is to streamline procurement and financial workflows by leveraging AI-driven agents that integrate with enterprise systems like **SAP S4HANA**.
+This lab focuses on automating the **Order to Cash (O2C)** process using watsonx Orchestrate. The goal is to streamline procurement and financial workflows by leveraging AI-driven agents that integrate with enterprise systems like **SAP S4HANA**.
 
 The specific scenario involves performing a **three-way match** between **Purchase Order**, **Supplier Invoice**, and **Goods Receipt** to validate invoices and ensure compliance. This is a critical step in the O2C cycle for preventing payment errors and maintaining financial integrity.
 
-We will build a multi-agent solution within Watsonx Orchestrate that:
+We will build a multi-agent solution within watsonx Orchestrate that:
 
 * Creates purchase orders and retrieves their details from SAP S/4HANA.
 * Extracts goods receipt data and links it to the corresponding purchase order.
@@ -40,7 +40,7 @@ By automating the O2C validation process, procurement and finance teams can:
 
 
 <details open id="creating-agents-in-watsonx-orchestrate">
-<summary><h2>2. Creating Agents in watsonX Orchestrate</h2></summary>
+<summary><h2>2. Creating Agents in watsonx Orchestrate</h2></summary>
 
 We will be creating 4 agents as part of this lab
 
@@ -539,7 +539,7 @@ Reason = "PO and Invoice prices do not match."
 <details open id="testing-create-purchase-agent">
 <summary><h3>3.1 Testing Create Purchase Order Agent</h3></summary>
 
-1. Navigate to the hamburger menu and click on **Chat**.
+1. Navigate to the **☰** hamburger menu and click on **Chat**.
 
 ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/11.png)
 
@@ -597,7 +597,7 @@ The purchase order ID is 4500002135.
 <details open id="summary">
 <summary><h2>4. Summary</h2></summary>
 
-In this lab, we successfully built an AI-powered multi-agent solution in Watsonx Orchestrate to automate the **Order to Cash validation process**. The solution was designed to integrate with SAP S/4HANA, retrieve purchase order and goods receipt data, and validate invoices through a strict **three-way matching** process, as illustrated in the architecture diagram.
+In this lab, we successfully built an AI-powered multi-agent solution in watsonx Orchestrate to automate the **Order to Cash validation process**. The solution was designed to integrate with SAP S/4HANA, retrieve purchase order and goods receipt data, and validate invoices through a strict **three-way matching** process, as illustrated in the architecture diagram.
 
 Throughout the lab, we accomplished the following key learning objectives:
 

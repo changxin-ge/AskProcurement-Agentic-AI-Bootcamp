@@ -62,6 +62,8 @@ Please find the step-by-step instructions here on how you can implement these us
 ## 🧩 Credits
 <details><summary>IBM Client Engineering Team</summary>
 
+#### Business Technical Leader 
+* Orion Krawitt
 
 #### Instructors
 * Pengxiang Xu

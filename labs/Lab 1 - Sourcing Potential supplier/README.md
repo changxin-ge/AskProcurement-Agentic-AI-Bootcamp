@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [1. Introduction](#introduction)
-- [2. Accessing Watsonx Orchestrate UI](#accessing-ui)
+- [2. Accessing watsonx Orchestrate UI](#accessing-ui)
 - [3. Building the Potential Supplier Agent](#building-potential-supplier-agent)
     - [3.1 Catalog Management Agent](#catalog-management-agent)
     - [3.2 Supplier Management Agent](#supplier-management-agent)
@@ -20,11 +20,11 @@
 
 ![alt text](images/sourcing_supplier_architecture.png)
 
-This lab focuses on automating the process of sourcing potential suppliers using Watsonx Orchestrate. The goal is to optimize procurement decisions by leveraging AI-driven workflows and enterprise system integrations.
+This lab focuses on automating the process of sourcing potential suppliers using watsonx Orchestrate. The goal is to optimize procurement decisions by leveraging AI-driven workflows and enterprise system integrations.
 
 The specific scenario involves identifying the best supplier for a given product based on key factors such as **cost** and **delivery time**. These decisions are critical for ensuring timely procurement and cost efficiency in large-scale operations.
 
-In this lab, you will build an AI-powered agent within Watsonx Orchestrate that:
+In this lab, you will build an AI-powered agent within watsonx Orchestrate that:
 
 * Integrates with **SAP S/4HANA** using pre-built agents to access supplier data.
 * Retrieves and analyzes supplier information including pricing and delivery timelines.
@@ -42,7 +42,7 @@ By automating supplier sourcing, procurement teams can:
 
 
 <details open id="accessing-ui">
-<summary><h2>2. Accessing Watsonx Orchestrate UI</h2></summary>
+<summary><h2>2. Accessing watsonx Orchestrate UI</h2></summary>
 
 1. To access the watsonx Orchestrate console, go to the [Resources list on the IBM Cloud homepage](https://cloud.ibm.com/resources).
  ![alt text](images/img1.png)
@@ -82,7 +82,7 @@ Let us get started with building the child agents first.
 3. Since we will be using a pre built agent for this, select the **Choose from template** option.
     ![alt text](images/img6.png)
 
-4. This opens up the page which contains all the prebuilt agents available on Watsonx Orchestrate platform, Scroll to the Apps section from the left menu and search for `SAP`, From the filtered list select the **SAP S4 Hana** option as shown below
+4. This opens up the page which contains all the prebuilt agents available on watsonx Orchestrate platform, Scroll to the Apps section from the left menu and search for `SAP`, From the filtered list select the **SAP S4 Hana** option as shown below
     ![alt text](images/img7.png)
 
 5. Click on the **Catalog Management with S4 Hana**
@@ -214,10 +214,15 @@ We will now be adding the above two agents we had previously created as collabor
 ```
 **How To Route To Other Agents**
 You are a manager agent. You have other agents working under you.
-- When the users ask general information about companies and the risks associated with working with them use the dnb_supplier_research_agent to handle these questions.
 - When the users ask about available suppliers or wants to edit information (addresses, contact information, supplier details, etc.) for suppliers within the SAP S4 HANA procurement system use the sap_supplier_management_agent.
 - When the users ask about inventory items or materials, purchasing info records, or pricing conditions (such as creating, updating, or retrieving), and if user wants to get/list suppliers for a specific material, use the sap_catalog_management_agent to handle these requests.
 Your job is to delegate tasks to the most appropriate agent.
+
+Do not prompt to generate Purchase Order, instead, asks to generate Request For Information. Says, "In order to generate Purchase Order, it's recommended that you go through the Request For Information Process."
+
+Finally, suggest other options that you can do.
+
+Always end with asking if they want to start Request For Information Process
 ```
 
   ![alt text](images/img25.png)
@@ -238,9 +243,8 @@ Now we are all set to test our agent, to do so let start by chatting in the prev
 1. Begin the conversation by asking as below.
 
 ```
-Show all the suppliers that sell the picoscan100 lidar
+Search for all suppliers that sells picoScan100 lidar
 ```
- ![Agent Testing](images/img26.png)
 
 2. When we click on the individual steps we can see the observability of what is happening in the background and as you can see it is invoking the **sap_catalog_management_agent** which inturn invokes the tools integrated to it in the subsequent steps.
  ![Agent Testing](images/img27.png)
@@ -250,22 +254,27 @@ Show all the suppliers that sell the picoscan100 lidar
 
 4. Let us now try to get some reasoning and ask the agent to select the most appropriate supplier, enter the below question in the chat window.
 ```
-What's the supplier that offers best price at the earliest delivery date?
+Which supplier has the lower price point?
 ```
  ![Agent Testing](images/img29.png)
 
-5. You can now see the agent has chosen the supplier 1446 as the best supplier based on the provided contraints.
+5. Let us try adding more contraints to the query
+```
+What about supplier that has lower price point AND fastest delivery day?
+```
+
+6. You can now see the agent has chosen the supplier 1446 as the best supplier based on the provided contraints.
  ![Agent Testing](images/img30.png)
 
-6. Let us now try to gather more information about this supplier, try the below question
+7. Let us now try to gather more information about this supplier, try the below question
 ```
 Tell me more about the supplier 1446
 ```
 
-7. You can now see that the **sap_supplier_management_agent** is being invoked since this provides information related to the suppliers
+8. You can now see that the **sap_supplier_management_agent** is being invoked since this provides information related to the suppliers
  ![Agent Testing](images/img31.png)
 
-8. You can now finally see a detailed response for the supplier 1446.
+9. You can now finally see a detailed response for the supplier 1446.
  ![Agent Testing](images/img32.png)
 
 [← Back to Table of contents](#table-of-contents)
@@ -293,7 +302,7 @@ To deploy the Agent
 
 It make take a few seconds to complete the deployement process
 
-4. To test the agent from the AI Chat window, click on the hamburger menu in the top left corner and then click on Chat.
+4. To test the agent from the AI Chat window, click on the **☰** hamburger menu in the top left corner and then click on Chat.
 
   ![AI Chat](images/img36.png)
 
@@ -309,11 +318,11 @@ It make take a few seconds to complete the deployement process
 <details open id="summary">
 <summary><h2>6. Summary</h2></summary>
 
-In this lab, we successfully built an AI-powered agent in Watsonx Orchestrate designed to automate the process of sourcing potential suppliers. The agent was configured to integrate with **SAP S4 HANA** using pre-built agents, retrieve supplier and catalog data, and apply decision logic to recommend the most suitable supplier based on cost and delivery time.
+In this lab, we successfully built an AI-powered agent in watsonx Orchestrate designed to automate the process of sourcing potential suppliers. The agent was configured to integrate with **SAP S4 HANA** using pre-built agents, retrieve supplier and catalog data, and apply decision logic to recommend the most suitable supplier based on cost and delivery time.
 
 Throughout the lab, we accomplished the following key learning objectives:
 
-* Created a master agent in Watsonx Orchestrate to manage procurement workflows.
+* Created a master agent in watsonx Orchestrate to manage procurement workflows.
 * Integrated two pre-built collaborator agents:
   * **Catalog Management Agent** for material and pricing details.
   * **Supplier Management Agent** for supplier insights and contact information.
