@@ -45,15 +45,15 @@ By automating supplier sourcing, procurement teams can:
 <summary><h2>2. Accessing watsonx Orchestrate UI</h2></summary>
 
 1. To access the watsonx Orchestrate console, go to the [Resources list on the IBM Cloud homepage](https://cloud.ibm.com/resources).
- ![alt text](images/img1.png)
+    ![alt text](images/img1.png)
 
 2. Expand the **AI / Machine Learning** section and select the resource that has **watsonx Orchestrate** in the Product column, as shown above. Then click **Launch watsonx Orchestrate**.
 
- ![alt text](images/img2.png)
+    ![alt text](images/img2.png)
 
-This opens the watsonx Orchestrate console.
+3. This opens the watsonx Orchestrate console.
 
- ![alt text](images/img3.png)
+    ![alt text](images/img3.png)
 
 [← Back to Table of contents](#table-of-contents)
 
@@ -211,21 +211,21 @@ We will now be adding the above two agents we had previously created as collabor
 
 1. Click **Behavior** on the left menu or scroll down to the Behavior section and enter the below provided content in the **Instructions** field.
 
-```
-**How To Route To Other Agents**
-You are a manager agent. You have other agents working under you.
-- When the users ask about available suppliers or wants to edit information (addresses, contact information, supplier details, etc.) for suppliers within the SAP S4 HANA procurement system use the sap_supplier_management_agent.
-- When the users ask about inventory items or materials, purchasing info records, or pricing conditions (such as creating, updating, or retrieving), and if user wants to get/list suppliers for a specific material, use the sap_catalog_management_agent to handle these requests.
-Your job is to delegate tasks to the most appropriate agent.
+    ```
+    **How To Route To Other Agents**
+    You are a manager agent. You have other agents working under you.
+    - When the users ask about available suppliers or wants to edit information (addresses, contact information, supplier details, etc.) for suppliers within the SAP S4 HANA procurement system use the sap_supplier_management_agent.
+    - When the users ask about inventory items or materials, purchasing info records, or pricing conditions (such as creating, updating, or retrieving), and if user wants to get/list suppliers for a specific material, use the sap_catalog_management_agent to handle these requests.
+    Your job is to delegate tasks to the most appropriate agent.
 
-Do not prompt to generate Purchase Order, instead, asks to generate Request For Information. Says, "In order to generate Purchase Order, it's recommended that you go through the Request For Information Process."
+    Do not prompt to generate Purchase Order, instead, asks to generate Request For Information. Says, "In order to generate Purchase Order, it's recommended that you go through the Request For Information Process."
 
-Finally, suggest other options that you can do.
+    Finally, suggest other options that you can do.
 
-Always end with asking if they want to start Request For Information Process
-```
+    Always end with asking if they want to start Request For Information Process
+    ```
 
-  ![alt text](images/img25.png)
+    ![alt text](images/img25.png)
 
 [← Back to Table of contents](#table-of-contents)
 </details>
@@ -242,40 +242,40 @@ Now we are all set to test our agent, to do so let start by chatting in the prev
 
 1. Begin the conversation by asking as below.
 
-```
-Search for all suppliers that sells picoScan100 lidar
-```
+    ```
+    Search for all suppliers that sells picoScan100 lidar
+    ```
 
 2. When we click on the individual steps we can see the observability of what is happening in the background and as you can see it is invoking the **sap_catalog_management_agent** which inturn invokes the tools integrated to it in the subsequent steps.
- ![Agent Testing](images/img27.png)
+    ![Agent Testing](images/img27.png)
 
 3. You should finally be able to see a response as below which lists out the suppliers for the picoscan100 lidar.
- ![Agent Testing](images/img28.png)
+    ![Agent Testing](images/img28.png)
 
 4. Let us now try to get some reasoning and ask the agent to select the most appropriate supplier, enter the below question in the chat window.
-```
-Which supplier has the lower price point?
-```
- ![Agent Testing](images/img29.png)
+    ```
+    Which supplier has the lower price point?
+    ```
+    ![Agent Testing](images/img29.png)
 
 5. Let us try adding more contraints to the query
-```
-What about supplier that has lower price point AND fastest delivery day?
-```
+    ```
+    What about supplier that has lower price point AND fastest delivery day?
+    ```
 
 6. You can now see the agent has chosen the supplier 1446 as the best supplier based on the provided contraints.
- ![Agent Testing](images/img30.png)
+    ![Agent Testing](images/img30.png)
 
 7. Let us now try to gather more information about this supplier, try the below question
-```
-Tell me more about the supplier 1446
-```
+    ```
+    Tell me more about the supplier 1446
+    ```
 
 8. You can now see that the **sap_supplier_management_agent** is being invoked since this provides information related to the suppliers
- ![Agent Testing](images/img31.png)
+    ![Agent Testing](images/img31.png)
 
 9. You can now finally see a detailed response for the supplier 1446.
- ![Agent Testing](images/img32.png)
+    ![Agent Testing](images/img32.png)
 
 [← Back to Table of contents](#table-of-contents)
 </details>
