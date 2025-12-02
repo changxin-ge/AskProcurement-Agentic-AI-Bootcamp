@@ -49,11 +49,11 @@ By automating supplier sourcing, procurement teams can:
 
 2. Expand the **AI / Machine Learning** section and select the resource that has **watsonx Orchestrate** in the Product column, as shown above. Then click **Launch watsonx Orchestrate**.
 
-  ![alt text](images/img2.png)
+ ![alt text](images/img2.png)
 
 This opens the watsonx Orchestrate console.
 
-  ![alt text](images/img3.png)
+ ![alt text](images/img3.png)
 
 [← Back to Table of contents](#table-of-contents)
 
