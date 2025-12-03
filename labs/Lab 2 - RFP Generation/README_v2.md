@@ -237,20 +237,9 @@ Now we are all set to test our agent, to do so let start by chatting in the prev
     ![Agent Testing](images/img14.png)
 
 
-2. The agent will list out all the required questiosn to be answered which is essential for creating the RFP. Enter the below details.
+2. The agent will list out all the required questiosn to be answered which is essential for creating the RFP. Enter the below response which contains the answer to all the questions asked.
     ```
-    1. This LiDAR survey from low-orbit satellites will help us monitor vegetation structure, canopy height, and terrain variations across remote forest areas. Satellite LiDAR enables rapid mapping of large zones that are otherwise difficult to access. The data will support ecological analysis and conservation planning. 
-
-    2. 80 hectares 
-
-    3. Issue date : 12th December 2025 
-    Deadline : 25th December 2025 
-
-    4. Company profile, past experience, methodology, timeline 
-
-    5. Cost per hectare. 
-
-    6. Via email
+    The LiDAR survey from low-orbit satellites is intended to monitor vegetation structure, canopy height, and terrain variations across remote forest areas. This approach enables rapid mapping of large zones that are otherwise difficult to access, providing critical data for ecological analysis and conservation planning. The survey will cover approximately 80 hectares, with the proposal issue date set for December 12, 2025, and the submission deadline on December 25, 2025. Vendors are required to submit their company profile, past experience, methodology, and timeline as part of the proposal. The financial proposal should be presented as a cost per hectare, and all submissions must be sent via email.
     ```
     ![Agent Testing](images/test_img1.png)
 
