@@ -281,26 +281,26 @@ Now we are all set to test our agent, to do so let start by chatting in the prev
 </details>
 
 
-<details open id="deploying-agent">
+<details id="deploying-agent">
 <summary><h2>5. Deploying the Agent (Optional)</h2></summary>
 
-In this section, we will deploy the Sourcing Potential Supplier Agent along with the child agents created earlier. Deployment ensures that the agents are accessible through watsonx Orchestrate chat and ready to handle real-time queries.
-
-To deploy the Agent 
+    In this section, we will deploy the Sourcing Potential Supplier Agent along with the child agents created earlier. Deployment ensures that the agents are accessible through watsonx Orchestrate chat and ready to handle real-time queries.
+    
+    To deploy the Agent 
 
 1. Turn on the toggle button for Home page so that your agent shows up in the watsonx Orchestrate Chat home page, once deployed.
 
-  ![Toggle button](images/img33.png)
+    ![Toggle button](images/img33.png)
 
 2. Click the **Deploy** button in the top-right corner to deploy your agent.
 
-  ![Deploy](images/img34.png)
+    ![Deploy](images/img34.png)
 
 3. Click the **Deploy** button in the bottom-right corner of Pre-deployment summary page.
 
-  ![Confirm Deploy](images/img35.png)
+    ![Confirm Deploy](images/img35.png)
 
-It make take a few seconds to complete the deployement process
+    It make take a few seconds to complete the deployement process
 
 4. To test the agent from the AI Chat window, click on the **☰** hamburger menu in the top left corner and then click on Chat.
 
