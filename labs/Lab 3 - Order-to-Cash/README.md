@@ -298,8 +298,9 @@ We will be creating 4 agents as part of this lab
 ### Adding Behavior to the agent
 
 1. Click **Behavior** on the left menu or scroll down to the Behavior section and enter the below provided content in the **Instructions** field.
-    ```
-    Return GR data for a given purchase_order_id. The agent uses mocked GR data but replaces the purchase_order_id field with the value received from Agent C. No user prompts.
+
+```
+Return GR data for a given purchase_order_id. The agent uses mocked GR data but replaces the purchase_order_id field with the value received from Agent C. No user prompts.
 
     1. Input:
 
@@ -319,28 +320,29 @@ We will be creating 4 agents as part of this lab
 
     Do not include explanations, logging, or extra text.
 
-    This is GR Data template. Inject purchase_order_id as value to purchase_order_number field 
-    {
-      "goods_receipt_id": "4900000121",
-      "date_created": "2017-11-08",
-      "date_received": "2017-11-08",
-      "base_unit": "EA",
-      "batch": "BATCH002",
-      "currency_code": "EUR",
-      "entry_unit": "EA",
-      "gl_account": "400200",
-      "material_number": "MAT2002",
-      "material_short_text": "Gadget",
-      "movement_type": "101",
-      "plant": "PLANT02",
-      "purchase_order_number": `purchase_order_id`,
-      "purchase_order_item": "00020",
-      "quantity": 100,
-      "storage_location": "SL02",
-      "supplier_id": "SUPP001"
-    }
-    ```
-    ![Alt text for image](./screenshot_assets/O2C_Get_Goods_Receipts/3.png)
+This is GR Data template. Inject purchase_order_id as value to purchase_order_number field. Inject today's date to date_created and date_received fields.
+{
+  "goods_receipt_id": "4900000121",
+  "date_created": {{today's date}} ,
+  "date_received": {{today's date}} ,
+  "base_unit": "EA",
+  "batch": "BATCH002",
+  "currency_code": "EUR",
+  "entry_unit": "EA",
+  "gl_account": "400200",
+  "material_number": "MAT2002",
+  "material_short_text": "Gadget",
+  "movement_type": "101",
+  "plant": "PLANT02",
+  "purchase_order_number": `purchase_order_id`,
+  "purchase_order_item": "00020",
+  "quantity": 80,
+  "storage_location": "SL02",
+  "supplier_id": "SUPP001"
+}
+```
+
+![Alt text for image](./screenshot_assets/O2C_Get_Goods_Receipts/3.png)
 
 [← Back to Table of contents](#table-of-contents) 
 
@@ -399,52 +401,49 @@ We will be creating 4 agents as part of this lab
 
 1. Click **Behavior** on the left menu or scroll down to the Behavior section and enter the below provided content in the **Instructions** field.
 
-    ```
-    Ask user for purchase_order_id
-    Prompt:
-    “Please enter the PO number you want to validate:”
+```
+0. Ask user for purchase_order_id
+Prompt: “Please enter the PO number you want to validate:”
 
     1. Retrieve PO data (get_purchase_order_cmn)
 
     Pass purchase_order_id to Agent A.
 
-    Receive PO_data from the tool.
-
-    Display PO_data as a table (horizontal format).
+Receive PO_data from the tool.
 
     2. Retrieve GR data (get_goods_receipt_cmn)
 
     Pass purchase_order_id to Agent B.
 
-    Receive GR_data.
-
-    Display GR_data as a table.
+Receive GR_data.
 
     3. Build Invoice Data
 
     Create invoice_data using this template:
 
-    {
-      "invoice_number": "INV9001",
-      "purchase_order_number": "{{purchase_order_id}}",
-      "purchase_order_item": "00020",
-      "material_number": "MAT2002",
-      "material_description": "Gadget",
-      "quantity_invoiced": 80,
-      "unit_price": 5.00,
-      "total_amount": 500.00,
-      "currency": "EUR",
-      "supplier": "10200001",
-      "invoice_date": "2017-11-09",
-      "posting_date": "2017-11-09",
-      "tax_code": "TAX01",
-      "payment_terms": "NET30",
-      "gl_account": "400200",
-      "company_code": "1010",
-      "plant": "PLANT02"
-    }
+{
+  "invoice_number": "INV9001",
+  "purchase_order_number": "{{purchase_order_id}}",
+  "purchase_order_item": "00020",
+  "material_number": "MAT2002",
+  "material_description": "Gadget",
+  "quantity_invoiced": 110,
+  "unit_price": 1275.00,
+  "total_amount": 102,000.00,
+  "currency": "EUR",
+  "supplier": "1072",
+  "invoice_date": {{today's date}},
+  "posting_date": {{today's date}},
+  "tax_code": "TAX01",
+  "payment_terms": "NET30",
+  "gl_account": "400200",
+  "company_code": "1010",
+  "plant": "PLANT02"
+}
 
-    Display invoice_data as a table.
+Display PO_data as a table (horizontal format).
+Display GR_data as a table.
+Display invoice_data as a table.
 
     4. Perform 3-Way Validation (Strict) with Failure Reason
 
@@ -462,11 +461,9 @@ We will be creating 4 agents as part of this lab
 
     If any of these are missing, null, or not numeric:
 
-    Result = "Validation Failed ❌"
+Result = "**Validation Failed ❌**"
 
-    Reason = "Required data is missing."
-
-    Stop.
+Reason = "Required data is missing."
 
     Quantity check:
 
@@ -480,28 +477,29 @@ We will be creating 4 agents as part of this lab
 
     Else → price_match = false
 
-    Final Result with Failure Reason:
+Display Result with Failure Reason:
 
-    If quantity_match == true AND price_match == true
-    → Result = "Validation Passed ✔️"
-    → Reason = None
+If quantity_match == true AND price_match == true:
+    Result = "**Validation Passed ✔️**"
+    Reason = None
+Else:
+    If PO_data.quantity != GR_data.quantity:
+        Reason = "PO and GR quantities do not match."
+        Summary = f"**PO quantity {PO_data.quantity} vs GR quantity {GR_data.quantity}**"
+    Else if GR_data.quantity != invoice_data.quantity_invoiced:
+        Reason = "GR and Invoice quantities do not match."
+        Summary = f"**GR quantity {GR_data.quantity} vs Invoice quantity {invoice_data.quantity_invoiced}**"
+    Else if PO_data.quantity != invoice_data.quantity_invoiced:
+        Reason = "PO and Invoice quantities do not match."
+        Summary = f"**PO quantity {PO_data.quantity} vs Invoice quantity {invoice_data.quantity_invoiced}**"
+    Else if PO_data.unit_price != invoice_data.unit_price:
+        Reason = "PO and Invoice prices do not match."
+        Summary = f"**PO price {PO_data.unit_price} vs Invoice price {invoice_data.unit_price}**"
 
-    Else
-    → Result = "Validation Failed ❌"
-    → Reason = first applicable mismatch (check in order):
+After displaying the validation Result, Reason, and Summary (if any), ask the user:
 
-    If PO_data.quantity != invoice_data.quantity_invoiced →
-    Reason = "PO and Invoice quantities do not match."
-
-    Else if GR_data.quantity != invoice_data.quantity_invoiced →
-    Reason = "GR and Invoice quantities do not match."
-
-    Else if PO_data.quantity != GR_data.quantity →
-    Reason = "PO and GR quantities do not match."
-
-    Else if PO_data.unit_price != invoice_data.unit_price →
-    Reason = "PO and Invoice prices do not match."
-    ```
+“The invoice is blocked for payment. Would you like to notify the supplier to resolve the issue?” if the validation result failed.
+```
 
     ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/7.png)
 
@@ -554,9 +552,10 @@ We will be creating 4 agents as part of this lab
 ***Note**: Make sure to copy the created Purchase Order ID to use it in the **Get Purchase Order Agent**. The purchase order ID can be used there in the Quick Prompt edit.*
 
 5. Try out the below query to check out supplier details.
-    ```
-    Get all supplier details for company code WXO1.
-    ```
+
+```
+Get all supplier details for company code WXO1.
+```
 
     ![Alt text for image](./screenshot_assets/Testing_Agents/3.png)
 
