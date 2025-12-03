@@ -1,6 +1,6 @@
 # Procurement Workflow Automation with watsonx Orchestrate AI Agents
 
-![alt text](./main_architecture.png)
+![alt text](./Lab%20Introduction.png)
 
 Ever spent hours evaluating suppliers or drafting RFPs manually? These tasks can be time-consuming and prone to errors.
 
@@ -51,6 +51,7 @@ This automation reduces manual checks, prevents costly errors, and accelerates t
 ## 🚀 Getting Started
 Please find the step-by-step instructions here on how you can implement these use cases.
 
+1. [Prerequisite - watsonx Orchestrate Setup](./environment_onboardings/README.md)
 1. [Lab 1 - Sourcing Potential Supplier](labs/Lab%201%20-%20Sourcing%20Potential%20supplier/README.md)
 2. [Lab 2 - RFP Generation](labs/Lab%202%20-%20RFP%20Generation/README.md)
 3. [Lab 3 - Order-to-Cash (Optional)](labs/Lab%203%20-%20Order-to-Cash/README.md)
