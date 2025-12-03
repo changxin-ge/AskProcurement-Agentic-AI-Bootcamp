@@ -54,7 +54,7 @@ Please find the step-by-step instructions here on how you can implement these us
 1. [Prerequisite - watsonx Orchestrate Setup](./environment_onboardings/README.md)
 1. [Lab 1 - Sourcing Potential Supplier](labs/Lab%201%20-%20Sourcing%20Potential%20supplier/README.md)
 2. [Lab 2 - RFP Generation](labs/Lab%202%20-%20RFP%20Generation/README.md)
-3. [Lab 3 - Order-to-Cash (Optional)](labs/Lab%203%20-%20Order-to-Cash/README.md)
+3. [Lab 3 - Order-to-Cash](labs/Lab%203%20-%20Order-to-Cash/README.md)
 
 ## Resources
 * [watsonx Orechestrate Documentation](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base)
