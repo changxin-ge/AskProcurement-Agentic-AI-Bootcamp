@@ -39,4 +39,4 @@ This is a prerequisite to the AskProcurement Agentic AI Bootcamp. Please follow 
 ![](images/5.png)
 
 
-[← Back to Table of contents](#table-of-content) | [← Back to Main Page](../README.md) | [Next: Lab 1 - Sourcing Potential Supplier →](../labs/Lab%201%20-%20Sourcing%20Potential%20supplier/README.md)
+[← Back to Table of contents](#table-of-content) | [← Back to Main Page](../README.md) | [Next: Lab 1 - Sourcing Potential Supplier →](../labs/Lab%201%20-%20Sourcing%20Potential%20Supplier/README.md)
