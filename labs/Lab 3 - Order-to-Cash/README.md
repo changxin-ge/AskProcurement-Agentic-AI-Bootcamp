@@ -57,6 +57,12 @@ We will be creating 4 agents as part of this lab
     ![Alt text for image](./screenshot_assets/common_5.png)
 
 2. Give the **Name** and agent **Description**.
+   1. Mention your name as a prefix of the agent name, to avoid confusion.
+   2. Example:
+        ```
+        Name: James Brown
+        Agent Name: JamesBrown Create Purchase Order Agent
+        ```
   
     ```
     Create Purchase Order Agent
@@ -188,6 +194,12 @@ We will be creating 4 agents as part of this lab
     ![Alt text for image](./screenshot_assets/common_5.png)
 
 2. Give the Agent **Name** and **Description**.
+   1. Mention your name as a prefix of the agent name, to avoid confusion.
+   2. Example:
+        ```
+        Name: James Brown
+        Agent Name: JamesBrown Get Purchase Order Agent
+        ```
 
     ```
     Get Purchase Order Agent
@@ -277,6 +289,12 @@ We will be creating 4 agents as part of this lab
     ![Alt text for image](./screenshot_assets/common_5.png)
 
 2. Give the Agent **Name** and **Description**.
+   1. Mention your name as a prefix of the agent name, to avoid confusion.
+   2. Example:
+        ```
+        Name: James Brown
+        Agent Name: JamesBrown Get Goods Receipts
+        ```
 
     ```
     Get Goods Receipts
@@ -356,6 +374,12 @@ This is GR Data template. Inject purchase_order_id as value to purchase_order_nu
     ![Alt text for image](./screenshot_assets/common_5.png)
 
 2. Give the Agent **Name** and **Description**.
+   1. Mention your name as a prefix of the agent name, to avoid confusion.
+   2. Example:
+        ```
+        Name: James Brown
+        Agent Name: JamesBrown Order To Cash Validator Agent
+        ```
 
     ```
     Order To Cash Validator Agent
