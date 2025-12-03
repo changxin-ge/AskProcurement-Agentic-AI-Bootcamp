@@ -241,11 +241,11 @@ Now we are all set to test our agent, to do so let start by chatting in the prev
     ```
     The LiDAR survey from low-orbit satellites is intended to monitor vegetation structure, canopy height, and terrain variations across remote forest areas. This approach enables rapid mapping of large zones that are otherwise difficult to access, providing critical data for ecological analysis and conservation planning. The survey will cover approximately 80 hectares, with the proposal issue date set for December 12, 2025, and the submission deadline on December 25, 2025. Vendors are required to submit their company profile, past experience, methodology, and timeline as part of the proposal. The financial proposal should be presented as a cost per hectare, and all submissions must be sent via email.
     ```
-    ![Agent Testing](images/test_img1.png)
+    <img src="images/test_img1.png" alt="Agent Testing" width="1385">
 
 
 3. Now the agent has collected all the required details and asks for confirmation to generate the RFP document, you can enter `Yes`.
-    ![Agent Testing](images/test_img2.png)
+    <img src="images/test_img2.png" alt="Agent Testing" width="1385">
 
 4. The agent will now stream out the complete RFP document in a few seconds and you should be able to see a clearly structured RFP document as shown below.
     ![Agent Testing](images/img22.png)
