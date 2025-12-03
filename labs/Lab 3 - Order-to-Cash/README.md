@@ -318,25 +318,18 @@ We will be creating 4 agents as part of this lab
 1. Click **Behavior** on the left menu or scroll down to the Behavior section and enter the below provided content in the **Instructions** field.
 
 ```
-Return GR data for a given purchase_order_id. The agent uses mocked GR data but replaces the purchase_order_id field with the value received from Agent C. No user prompts.
+Return GR data for a given purchase_order_id. The agent uses mocked GR data but replaces the purchase_order_id field with the value received from Agent C. No user prompts. Agent C: Order To Cash Validator Agent
+1. Input:
+Receive purchase_order_id from Agent C.
 
-    1. Input:
+2. Processing:
+Take the predefined mocked GR object.
+Replace the purchase_order_id field in the mocked GR with the purchase_order_id received from Agent C.
+Do not ask the user for any information.
 
-    Receive purchase_order_id from Agent C.
-
-    2. Processing:
-
-    Take the predefined mocked GR object.
-
-    Replace the purchase_order_id field in the mocked GR with the purchase_order_id received from Agent C.
-
-    Do not ask the user for any information.
-
-    3. Output / Response:
-
-    Return the updated GR JSON object as-is, with the purchase_order_id updated.
-
-    Do not include explanations, logging, or extra text.
+3. Output / Response:
+Return the updated GR JSON object as-is, with the purchase_order_id updated.
+Do not include explanations, logging, or extra text.
 
 This is GR Data template. Inject purchase_order_id as value to purchase_order_number field. Inject today's date to date_created and date_received fields.
 {
@@ -429,21 +422,16 @@ This is GR Data template. Inject purchase_order_id as value to purchase_order_nu
 0. Ask user for purchase_order_id
 Prompt: “Please enter the PO number you want to validate:”
 
-    1. Retrieve PO data (get_purchase_order_cmn)
-
-    Pass purchase_order_id to Agent A.
-
+1. Retrieve PO data (Agent A: Get Purchase Order Agent)
+Pass purchase_order_id to Agent A.
 Receive PO_data from the tool.
 
-    2. Retrieve GR data (get_goods_receipt_cmn)
-
-    Pass purchase_order_id to Agent B.
-
+2. Retrieve GR data (Agent B: Get Goods Receipts)
+Pass purchase_order_id to Agent B.
 Receive GR_data.
 
-    3. Build Invoice Data
-
-    Create invoice_data using this template:
+3. Build Invoice Data
+Create invoice_data using this template:
 
 {
   "invoice_number": "INV9001",
@@ -469,37 +457,25 @@ Display PO_data as a table (horizontal format).
 Display GR_data as a table.
 Display invoice_data as a table.
 
-    4. Perform 3-Way Validation (Strict) with Failure Reason
-
-    Extract:
-
+4. Perform 3-Way Validation (Strict) with Failure Reason
+Extract:
     PO_data.quantity (must exist)
-
     GR_data.quantity (must exist)
-
     invoice_data.quantity_invoiced (must exist)
-
     PO_data.unit_price (must exist)
-
     invoice_data.unit_price (must exist)
-
     If any of these are missing, null, or not numeric:
 
 Result = "**Validation Failed ❌**"
-
 Reason = "Required data is missing."
 
-    Quantity check:
+Quantity check:
+If PO_data.quantity == GR_data.quantity AND PO_data.quantity == invoice_data.quantity_invoiced → quantity_match = true 
+Else → quantity_match = false
 
-    If PO_data.quantity == GR_data.quantity AND PO_data.quantity == invoice_data.quantity_invoiced → quantity_match = true
-
-    Else → quantity_match = false
-
-    Price check:
-
-    If PO_data.unit_price == invoice_data.unit_price → price_match = true
-
-    Else → price_match = false
+Price check:
+If PO_data.unit_price == invoice_data.unit_price → price_match = true
+Else → price_match = false
 
 Display Result with Failure Reason:
 
@@ -525,7 +501,7 @@ After displaying the validation Result, Reason, and Summary (if any), ask the us
 “The invoice is blocked for payment. Would you like to notify the supplier to resolve the issue?” if the validation result failed.
 ```
 
-    ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/7.png)
+![Alt text for image](./screenshot_assets/O2C_Validation_Agent/7.png)
 
 ### Deploying the Agent
 1. Now the agent is ready to be deployed. Click on **Deploy** (right hand corner).
