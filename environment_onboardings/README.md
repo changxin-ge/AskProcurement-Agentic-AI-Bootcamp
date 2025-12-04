@@ -11,7 +11,7 @@ This is a prerequisite to the AskProcurement Agentic AI Bootcamp. Please follow 
 
 
 ## Step 1. Sign Up watsonx Orchestrate
-1. Go to the watsonx Orchestrate product page and sign up for the 30-day trial
+1. Go to the watsonx Orchestrate product page and sign up for the [30-day trial](https://www.ibm.com/account/reg/us-en/signup?formid=urx-52753&utm_content=SRCWW&p1=Search&p4=1368291320139&p5=p&p9=166894517250&gclsrc=aw.ds&gad_source=1&gad_campaignid=21985111632&gbraid=0AAAAAD-_QsQacKSiW_MtH6KHCS0a7TG2A&gclid=Cj0KCQiA_8TJBhDNARIsAPX5qxSCzm6tA4ZKI_faAFGh_U_1MTsTfDb5p_KplGn8aIZT6NpANxQYIOAaAsqbEALw_wcB)
 ![](images/1.png)
 
 2. Log in / Sign up   
