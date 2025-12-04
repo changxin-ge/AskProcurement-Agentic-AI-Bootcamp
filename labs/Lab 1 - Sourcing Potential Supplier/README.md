@@ -100,6 +100,12 @@ Let us get started with building the child agents first.
 8. Let us rename the agent and rephrase the description to make it more meaningful for our use case.
 
     - **Name:** This describes the name of the Agent.
+        * Mention your name as a prefix of the agent name, to avoid confusion.
+        * Example:
+            ```
+            Name: James Brown
+            Agent Name: JamesBrown sap_catalog_management_agent
+            ```
     ```
     sap_catalog_management_agent
     ```
@@ -135,6 +141,12 @@ Let us get started with building the child agents first.
 6. Let us rename the agent and rephrase the description to make it more meaningful for our use case.
 
     - **Name:** 
+        * Mention your name as a prefix of the agent name, to avoid confusion.
+        * Example:
+            ```
+            Name: James Brown
+            Agent Name: JamesBrown sap_supplier_management_agent
+            ```
     ```
     sap_supplier_management_agent
     ```
@@ -162,6 +174,12 @@ In this section we will be building the Master agent which will manage the above
 2. We will be building thsi agent from Scratch, therefore enter the provided name and description to the agent.
 
     - **Name:** 
+        * Mention your name as a prefix of the agent name, to avoid confusion.
+        * Example:
+            ```
+            Name: James Brown
+            Agent Name: JamesBrown Sourcing Potential Supplier Agent
+            ```
     ```
     Sourcing Potential Supplier Agent
     ```

@@ -58,6 +58,12 @@ We are now ready to get started with building the RFP Generation Agent. Since yo
 
 2. Enter the requested fields with the below provided content.
   - **Name:** This describes the name of the Agent.
+    * Mention your name as a prefix of the agent name, to avoid confusion.
+    * Example:
+        ```
+        Name: James Brown
+        Agent Name: JamesBrown RFP Generation Agent
+        ```
     ```
     RFP Generation Agent
     ```
@@ -188,9 +194,9 @@ Since we will be generating an RFP document, inorder to download this document i
     ✅ RFP STRUCTURE YOU MUST GENERATE
 
     1. RFP Summary Details (Include only the below 3 fields and DO NOT show in a table)
-        - RFP Title
-        - RFP Number
-        -  Issue Date
+    - RFP Title
+    - RFP Number
+    -  Issue Date
     2. Background & Objective
     3. Scope of Work (in a table)
     4. Project Timeline (in a table)
@@ -203,7 +209,7 @@ Since we will be generating an RFP document, inorder to download this document i
     ✅ RULES
 
     - Ask only the questions listed above.
-    - Ask Only question at a time, wait for the user to answer the question before moving forward.
+    - Ask all these questions at once and wait for the user to enter them all at once. If any item is missing ask them before moving forward with creating the RFP.
     - Do not ask for multiple clarifications unless absolutely necessary.
     - Auto-fill everything else with professionally acceptable content.
     - Keep final RFP within 2–3 pages.
@@ -237,62 +243,32 @@ Now we are all set to test our agent, to do so let start by chatting in the prev
     ![Agent Testing](images/img14.png)
 
 
-2. The agent will begin with its first question asking the user to enter the **Background and Objective** for the RFP. Enter the provided details.
+2. The agent will list out all the required questiosn to be answered which is essential for creating the RFP. Enter the below response which contains the answer to all the questions asked.
     ```
-    This LiDAR survey from low-orbit satellites will help us monitor vegetation structure, canopy height, and terrain variations across remote forest areas. Satellite LiDAR enables rapid mapping of large zones that are otherwise difficult to access. The data will support ecological analysis and conservation planning
+    The LiDAR survey from low-orbit satellites is intended to monitor vegetation structure, canopy height, and terrain variations across remote forest areas. This approach enables rapid mapping of large zones that are otherwise difficult to access, providing critical data for ecological analysis and conservation planning. The survey will cover approximately 80 hectares, with the proposal issue date set for December 12, 2025, and the submission deadline on December 25, 2025. Vendors are required to submit their company profile, past experience, methodology, and timeline as part of the proposal. The financial proposal should be presented as a cost per hectare, and all submissions must be sent via email.
     ```
-    ![Agent Testing](images/img15.png)
+    <img src="images/test_img1.png" alt="Agent Testing" width="1385">
 
-3. Next the agent will ask for **Scope of Work**.
-    ```
-    80 hectares
-    ```
-    ![Agent Testing](images/img16.png)
 
-4. The agent will now ask for the **Project timeline** details.
-    ```
-    Issue date : 12th December 2025
-    Deadline : 25th December 2025
-    ```
-    ![Agent Testing](images/img17.png)
+3. Now the agent has collected all the required details and asks for confirmation to generate the RFP document, you can enter `Yes`.
+    <img src="images/test_img2.png" alt="Agent Testing" width="1385">
 
-5. Next the agent will ask for the **Proposal Requirements**.
-    ```
-    Company profile, past experience, methodology, timeline
-    ```
-    ![Agent Testing](images/img18.png)
-
-6. The agent will next ask for the **Financial Proposal Format**.
-    ```
-    Cost per hectare
-    ```
-    ![Agent Testing](images/img19.png)
-
-7. Lastly the agent will enquire about the **Submission Details**.
-    ```
-    Via email
-    ```
-    ![Agent Testing](images/img20.png)
-
-8. Now the agent has collected all the required details and asks for confirmation to generate the RFP document, you can enter `Yes`.
-    ![Agent Testing](images/img21.png)
-
-9. The agent will now stream out the complete RFP document in a few seconds and you should be able to see a clearly structured RFP document as shown below.
+4. The agent will now stream out the complete RFP document in a few seconds and you should be able to see a clearly structured RFP document as shown below.
     ![Agent Testing](images/img22.png)
 
-10. If we scroll to the end of the document, the agent will ask if we need a downloadable word version to the RFP, we can respond saying
+5. If we scroll to the end of the document, the agent will ask if we need a downloadable word version to the RFP, we can respond saying
     ```
     Yes I want a downloadable word document
     ```
     ![Agent Testing](images/img23.png)
 
-11. You can now see a downloadable link to the word document. On clicking it, the download process of the document should begin.
+6. You can now see a downloadable link to the word document. On clicking it, the download process of the document should begin.
     ![Agent Testing](images/img24.png)
 
-12. When we click on **Show Reasoning** and expand the **Step 1** we can see that the agent has invoked the tool we had added to generate this downloadable word document.
+7. When we click on **Show Reasoning** and expand the **Step 1** we can see that the agent has invoked the tool we had added to generate this downloadable word document.
     ![Agent Testing](images/img25.png)
 
-13. You can preview the content of the Word document which you just downloaded. It should be same as the one you saw on the chat window.
+8. You can preview the content of the Word document which you just downloaded. It should be same as the one you saw on the chat window.
 
 </details>
 
