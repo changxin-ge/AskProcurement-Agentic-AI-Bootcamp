@@ -567,15 +567,15 @@ We will be creating 4 agents as part of this lab
     item LiDAR, Supplier WXO supplier 3, quantity 110, price per unit 1275 USD, delivery plant WXO1
     ```
 
-    ![Alt text for image](./screenshot_assets/Testing_Agents/1.png)
+    ![Alt text for image](./screenshot_assets/Testing_Agents/create_po_data.png)
 
 5. Place purchase order
 
-    ![Alt text for image](./screenshot_assets/Testing_Agents/1.png)
+    ![Alt text for image](./screenshot_assets/Testing_Agents/confirm_PO_creation.png)
 
 6. Here is the example result after the purchase order is created.
 
-    ![Alt text for image](./screenshot_assets/Testing_Agents/2.png)
+    ![Alt text for image](./screenshot_assets/Testing_Agents/po_created.png)
 
 ***Note**: Make sure to copy the created Purchase Order ID to use it in the **Get Purchase Order Agent**. The purchase order ID can be used there in the Quick Prompt edit.*
 
