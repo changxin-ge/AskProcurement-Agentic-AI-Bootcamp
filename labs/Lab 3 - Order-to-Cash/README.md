@@ -560,14 +560,26 @@ We will be creating 4 agents as part of this lab
 3. Click on either of the Quick Prompts on the chat screen.
 
     ![Alt text for image](./screenshot_assets/Testing_Agents/1.png)
+   
+4. Provide purchase order details.
 
-4. Here is the example result after the purchase order is created.
+    ```
+    item LiDAR, Supplier WXO supplier 3, quantity 110, price per unit 1275 USD, delivery plant WXO1
+    ```
+
+    ![Alt text for image](./screenshot_assets/Testing_Agents/1.png)
+
+5. Place purchase order
+
+    ![Alt text for image](./screenshot_assets/Testing_Agents/1.png)
+
+6. Here is the example result after the purchase order is created.
 
     ![Alt text for image](./screenshot_assets/Testing_Agents/2.png)
 
 ***Note**: Make sure to copy the created Purchase Order ID to use it in the **Get Purchase Order Agent**. The purchase order ID can be used there in the Quick Prompt edit.*
 
-5. Try out the below query to check out supplier details.
+7. Try out the below query to check out supplier details.
 
     ```
     Get all supplier details for company code WXO1.
