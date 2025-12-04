@@ -189,7 +189,7 @@ We will be creating 4 agents as part of this lab
     ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/15.png)
 
 ### Deploying the agent
-1. The agent is no ready for deployment. Click on Deploy (in the right hand corner)
+1. The agent is now ready for deployment. Click on Deploy (in the right hand corner)
 
     ![Alt text for image](./screenshot_assets/O2C_Create_Purchase_Order/17.png)
 
