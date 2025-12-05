@@ -8,7 +8,7 @@ In this hands-on workshop, we’ll show you how to leverage IBM’s watsonx Orch
 
 ## 🧠 What You’ll Learn
 In this session, you’ll:
-* Learn how to orchestrate workflows in watsonx Orchestrate using both pre-built and custom AI Agents.
+* Learn how to orchestrate workflows in watsonx Orchestrate using both pre-built and persnoalized AI Agents.
 * Automate supplier sourcing and RFP generation through conversational interactions with the agent.
 * Explore integration possibilities with enterprise systems like SAP S/4HANA.
 

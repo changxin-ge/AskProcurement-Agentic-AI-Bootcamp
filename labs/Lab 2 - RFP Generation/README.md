@@ -272,7 +272,7 @@ Now we are all set to test our agent, to do so let start by chatting in the prev
 
 </details>
 
-<details open id="deploying-agent">
+<details id="deploying-agent">
 <summary><h2>4. Deploying the Agent (Optional)</h2></summary>
 
 In this section, we will deploy the RFP Generation Agent along with the tool created earlier. Deployment ensures that the agents are accessible through watsonx Orchestrate chat and ready to handle real-time queries.
