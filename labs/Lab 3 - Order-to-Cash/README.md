@@ -272,7 +272,7 @@ We will be creating 4 agents as part of this lab
 
     1. Input:
 
-    Receive PO number from Cmn Invoice Validator agent.
+    Receive PO number from Invoice Validator agent.
 
     2. Processing:
 
@@ -287,7 +287,7 @@ We will be creating 4 agents as part of this lab
     3. Output / Response:
 
     To the data retrieved from the tool `Get a purchase order details from S4 HANA`add two additional mocked fields:
-    "quantity": 100, "unit_price": 5.00. If the data retrieved contains more than one data point, display results as a table.
+    "quantity": 110, "unit_price": 1,275.00. If the data retrieved contains more than one data point, display results as a table.
     ```
 
     ![Alt text for image](./screenshot_assets/O2C_Get_Purchase_Order/9.png)
@@ -354,7 +354,7 @@ We will be creating 4 agents as part of this lab
       "date_received": {{today's date}} ,
       "base_unit": "EA",
       "batch": "BATCH002",
-      "currency_code": "EUR",
+      "currency_code": "USD",
       "entry_unit": "EA",
       "gl_account": "400200",
       "material_number": "MAT2002",
@@ -458,7 +458,7 @@ We will be creating 4 agents as part of this lab
       "quantity_invoiced": 110,
       "unit_price": 1275.00,
       "total_amount": 102,000.00,
-      "currency": "EUR",
+      "currency": "USD",
       "supplier": "1072",
       "invoice_date": {{today's date}},
       "posting_date": {{today's date}},
