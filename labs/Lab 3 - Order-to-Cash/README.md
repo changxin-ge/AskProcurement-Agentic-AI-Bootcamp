@@ -579,13 +579,14 @@ We will be creating 4 agents as part of this lab
 
 ***Note**: Make sure to copy the created Purchase Order ID to use it in the **Get Purchase Order Agent**. The purchase order ID can be used there in the Quick Prompt edit.*
 
+<!-- 
 7. Try out the below query to check out supplier details.
 
     ```
     Get all supplier details for company code WXO1.
     ```
 
-    ![Alt text for image](./screenshot_assets/Testing_Agents/3.png)
+    ![Alt text for image](./screenshot_assets/Testing_Agents/3.png) -->
 
 [← Back to Table of contents](#table-of-contents) 
 </details>
