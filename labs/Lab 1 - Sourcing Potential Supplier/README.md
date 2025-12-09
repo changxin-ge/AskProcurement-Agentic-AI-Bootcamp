@@ -67,7 +67,7 @@ This will consist of two sub(child) agents.
 
 2. **Supplier Management Agent (Prebuilt):** This agent is responsible for fetching the available insight information about suppliers such as their address, contact persons, delivery time details etc.
 
-The above two agents will be managed by a Master agent **Souring Potential Supplier Agent** which will basically route the queries to the appropriate child agent.
+The above two agents will be managed by a Master agent **Sourcing Potential Supplier Agent** which will basically route the queries to the appropriate child agent.
 Let us get started with building the child agents first.
 
 <details open id="catalog-management-agent">
@@ -124,7 +124,7 @@ Let us get started with building the child agents first.
     ![alt text](images/img13.png)
 
 
-2. Click on the **Create Agent +** button and select **Choose from template** option.
+2. Click on the **Create Agent +** button and select **Create from template** option.
     ![alt text](images/img5.png)
     ![alt text](images/img6.png)
 
@@ -223,7 +223,7 @@ We will now be adding the above two agents we had previously created as collabor
 </details>
 
 <details open id="adding-behavior">
-<summary><h3>3.3.3 Adding Behvior to the Agent</h3></summary>
+<summary><h3>3.3.3 Adding Behavior to the Agent</h3></summary>
 
 **Behavior** defines the instructions that the agent should follow while performing a particular task. It is the most important section since this is where we prompt the agent on what needs to be done. Always keep in mind to keep the behavior as precise and specific as possible.
 
