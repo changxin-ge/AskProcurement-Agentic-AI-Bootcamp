@@ -97,7 +97,7 @@ Let us get started with building the child agents first.
 8. Scroll down to the toolset section or click on the **Toolset** option. It will take some time for all the tools to be imported, please wait till it completes. Once it is complete you should see all the imported tools successfully.
     ![alt text](images/img11.png)
 
-8. Let us rename the agent and rephrase the description to make it more meaningful for our use case.
+8. Let us scroll back to the `Profile` section and rename the agent and rephrase the description to make it more meaningful for our use case.
 
     - **Name:** This describes the name of the Agent.
         * Mention your name as a prefix of the agent name, to avoid confusion.
@@ -138,7 +138,7 @@ Let us get started with building the child agents first.
 5. Scroll down to the toolset section or click on the **Toolset** option. It will take some time for all the tools to be imported, please wait till it completes. Once it is complete you should see all the imported tools successfully.
     ![alt text](images/img16.png)
 
-6. Let us rename the agent and rephrase the description to make it more meaningful for our use case.
+6. Let us scroll back to the `Profile` section and rename the agent and rephrase the description to make it more meaningful for our use case.
 
     - **Name:** 
         * Mention your name as a prefix of the agent name, to avoid confusion.
@@ -171,7 +171,7 @@ In this section we will be building the Master agent which will manage the above
 1. Go to **Manage Agents** Tab and click on **Create Agent +**
     ![alt text](images/img18.png)
 
-2. We will be building thsi agent from Scratch, therefore enter the provided name and description to the agent.
+2. We will be building this agent from Scratch, therefore enter the provided name and description to the agent.
 
     - **Name:** 
         * Mention your name as a prefix of the agent name, to avoid confusion.

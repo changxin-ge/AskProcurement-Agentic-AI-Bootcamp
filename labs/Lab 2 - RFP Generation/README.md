@@ -68,7 +68,7 @@ We are now ready to get started with building the RFP Generation Agent. Since yo
     RFP Generation Agent
     ```
 
-  - **Description:** This describes what tasks the agent will be performing, this will be useful when we are building a multi agentic solution when agents needs to discover suitable agents based on the task in hand.
+  - **Description:** This describes what tasks the agent will be performing, this will be useful when we are building a multi agentic solution when agents need to discover suitable agents based on the task in hand.
     ```
     This agent is used to ask suitable questions to the user and generate an RFP document for LiDAR used on low-orbit satellites
     ```
@@ -91,10 +91,10 @@ On the next screen, you can configure additional details about your agent.
 In our scenario we will be uploading the RFP template as knowledge so that the Agent can adhere to the template while generating the RFP documents.
 
 1. Click **Knowledge** on the left menu or scroll down to the Knowledge section, then click **Add source +**.
- ![Knowledge Creation](images/img4.png)
+    ![Knowledge Creation](images/img4.png)
 
 2. Select **New knowledge**
- ![Knowledge Creation](images/img5.png)
+    ![Knowledge Creation](images/img5.png)
 
 3. Since we will be uploading the file from local, select the **Upload files** option and click **Next**.
  ![Knowledge Creation](images/img6.png)
@@ -130,7 +130,7 @@ Since we will be generating an RFP document, inorder to download this document i
 3. Click **Drag and drop files here or click to upload**. Upload the previously downloaded file [Generate-word-document-openapi.json](<documents/Generate-word-document-openapi.json>) and click **Next**.
  ![Tool Creation](images/img11.png)
 
-4. The next page gives you details about the tool such as description. Click on the checkbox to select the operation and click **Done**
+4. The next page provides details about the tool such as description. Click on the checkbox to select the operation and click **Done**
  ![Tool Creation](images/img12.png)
 
 [← Back to Table of contents](#table-of-contents) 

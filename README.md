@@ -57,8 +57,8 @@ Please find the step-by-step instructions here on how you can implement these us
 3. [Lab 3 - Order-to-Cash](labs/Lab%203%20-%20Order-to-Cash/README.md)
 
 ## Resources
-* [watsonx Orechestrate Documentation](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base)
-* [watsonx Orechestrate ADK](https://developer.watson-orchestrate.ibm.com/)
+* [watsonx Orchestrate Documentation](https://www.ibm.com/docs/en/watsonx/watson-orchestrate/base)
+* [watsonx Orchestrate ADK](https://developer.watson-orchestrate.ibm.com/)
 
 ## 🧩 Credits
 <details><summary>IBM Client Engineering Team</summary>

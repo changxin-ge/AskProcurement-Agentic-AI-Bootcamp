@@ -533,7 +533,7 @@ We will be creating 4 agents as part of this lab
 
     ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/12.png)
 
-4. Now you can test the agent by clicking on the Quick Start prompt on the WxO chat. 
+4. Now you can test the agent by clicking on the Quick Start prompt on the watsonx Orchestrate chat. 
   - Click on Validate Purchase Order.
 
     ![Alt text for image](./screenshot_assets/O2C_Validation_Agent/13.png)
